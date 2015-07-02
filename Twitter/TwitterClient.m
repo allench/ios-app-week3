@@ -45,6 +45,8 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
             User *user = [[User alloc] initWithDictionary:responseObject];
             NSLog(@"Current User: %@", user.name);
             self.loginCompletion(user, nil);
+            // set current user
+            [User setCurrentUser:user];
 
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Failed to get current User!");
